@@ -1,13 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Osmosis Simulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-		<!-- Your code goes here-->
+    <div id="layout">
+    <header>Reverse Osmosis Simulator</header>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <div id="parameters">
+        <h2>Parameters</h2>
+        <div class="slider-box">
+        <div class="slider-subbox">
+            <label>Pressure: <span id="pressure-val">0</span> atm</label>
+            <input type="range" id="pressure-slider" min="0" max="7" step="0.1" />
+        </div>
+        <div class="slider-subbox">
+            <label>Temperature: <span id="temperature-val">15</span> °C</label>
+            <input type="range" id="temperature-slider" min="15" max="30" step="1" />
+        </div>
+        </div>
+
+        <h3>Membranes</h3>
+        <div class="membrane-images">
+        <div class="membrane" data-membrane="TFC" title="Thin Film Composite Membrane">
+            <img src="tfc1.jpeg" alt="TFC">
+            <div class="membrane-label">TFC</div>
+        </div>
+        <div class="membrane" data-membrane="CA" title="Cellulose Acetate Membrane">
+            <img src="ca.jpeg" alt="CA">
+            <div class="membrane-label">CA</div>
+        </div>
+        <div class="membrane" data-membrane="PT" title="Polyamide Thin Membrane">
+            <img src="pt.jpeg" alt="PT">
+            <div class="membrane-label">PT</div>
+        </div>
+        </div>
+
+        
+        <div class="button-section">
+            <div style="text-align: center;">
+                <button id="start-btn" title="Play">
+                <img src="play-circle.jpg" alt="Play" style="vertical-align: middle;"> 
+                </button>
+                <div style="margin-top: 8px; font-weight: bold;">Play</div>
+            </div>
+            <div style="text-align: center;">
+                <button id="pause-btn" title="Pause">
+                <img src="pause-circle.jpg" alt="Pause" style="vertical-align: middle;"> 
+                </button>
+                <div style="margin-top: 8px; font-weight: bold;">Pause</div>
+            </div>
+            <div style="text-align: center;">
+                <button id="reset-btn" title="Reset">
+                <img src="reset-circle.jpg" alt="Reset" style="vertical-align: middle;"> 
+                </button>
+                <div style="margin-top: 8px; font-weight: bold;">Reset</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="simulation">
+        <div id="beaker-container">
+        <canvas id="sim-canvas" width="600" height="350"></canvas>
+        </div>
+        <div id="graph-container">
+        <canvas id="fluxChart" width="600" height="200"></canvas>
+        </div>
+    </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src = "script.js" ></script>
 </body>
 </html>
