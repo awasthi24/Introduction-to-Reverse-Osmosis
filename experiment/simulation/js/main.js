@@ -1,9 +1,24 @@
-  const canvas = document.getElementById('sim-canvas');
+const canvas = document.getElementById('sim-canvas');
   const ctx = canvas.getContext('2d');
   const pressureSlider = document.getElementById('pressure-slider');
   const temperatureSlider = document.getElementById('temperature-slider');
   const pressureVal = document.getElementById('pressure-val');
   const temperatureVal = document.getElementById('temperature-val');
+  const instructions = document.getElementById('instructions');
+  let membraneSelected = false;
+  function updateInstructions() {
+    const pressureSet = pressure > 0;
+    const temperatureSet = temperature > 15; // assuming 15 is default
+    const membraneSet = membraneSelected;
+
+    if (!pressureSet || !temperatureSet) {
+      instructions.textContent = "Adjust pressure and temperature to start.";
+    } else if (!membraneSet) {
+      instructions.textContent = "Select membrane.";
+    } else {
+      instructions.textContent = "Start simulation. Adjust pressure and temperature to see variation.";
+    }
+  }
 
   const membranes = {
     TFC: { thickness: 6, color: 'black', gap: 7, allowedSizes: [6] },
@@ -203,11 +218,13 @@
   pressureSlider.oninput = () => {
     pressure = parseFloat(pressureSlider.value);
     pressureVal.textContent = pressure;
+    updateInstructions();
   };
 
   temperatureSlider.oninput = () => {
     temperature = parseFloat(temperatureSlider.value);
     temperatureVal.textContent = temperature;
+    updateInstructions();
   };
 
   document.getElementById('start-btn').onclick = () => {
@@ -236,9 +253,11 @@
     temperatureVal.textContent = '15';
     pressure = 0;
     temperature = 15;
+
     drawBeaker();
     drawMembrane(selectedMembrane);
     drawMolecules();
+    instructions.textContent = "Adjust pressure and temperature to start.";
   };
 
   document.querySelectorAll('.membrane').forEach(btn => {
@@ -246,9 +265,11 @@
       document.querySelectorAll('.membrane').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       selectedMembrane = btn.getAttribute('data-membrane');
+      membraneSelected = true;
       drawBeaker();
       drawMembrane(selectedMembrane);
       drawMolecules();
+      updateInstructions();
     };
   });
 
