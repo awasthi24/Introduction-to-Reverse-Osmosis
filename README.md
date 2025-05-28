@@ -1,24 +1,31 @@
+# Introduction-to-Reverse-Osmosis
+This virtual lab experiment introduces reverse osmosis, a process where water is purified by passing it through a semipermeable membrane under pressure. It helps visualize how contaminants are removed and highlights its use in water treatment and desalination.
+
+# engineering-chemistry-lab
+Engineering Chemistry Virtual Labs
 ## Introduction
 
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | Engineering chemistry
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Lab | Engineering Chemistry
+<b> Experiment|    Introdution to Reverse Osmosis
 
 ### About the Experiment 
 
-Fill a brief description of this experiment here
+This experiment demonstrates how reverse osmosis purifies water by using pressure to pass it through a semi-permeable membrane, removing salts and impurities.
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+<b>Name of Developer | Dr. Ravish Rajput 
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<b> Institute |REC Kannauj
+<b> Email id|     ravishrajput@reck.ac.in  
+<b> Department | Department of Applied Sciences and Humanities 
 
 ### Contributors List
 
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+1 | Abhishek Awasthi | Student | Electronics Engineering |  REC-K| abhishekreck24@gmail.com 
+2 | Medha Saxena | Student | Computer Sceince & Engineering| REC-K | saxenamedha38@gmail.com
+3 | Kirtibardhan Singh | Student | Electronics Engineering| REC-K | kirtibardhansingh01@gmail.com
+4 | Vipin | Student | Electrical Engineering | REC-K | vipinkumarrathaur7839@gmail.com
