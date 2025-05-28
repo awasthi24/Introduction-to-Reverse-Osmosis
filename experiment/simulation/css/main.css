@@ -1,1 +1,177 @@
+* { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    #layout {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+      grid-template-columns: 35% 65%;
+      grid-template-areas: "header header" "parameters simulation";
+      height: 100vh;
+    }
+    header {
+      grid-area: header;
+      background: #005f73;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    #parameters {
+      grid-area: parameters;
+      padding: 20px;
+      background: linear-gradient(to bottom, #d0f0f7, #ffffff);
+      border-right: 2px solid #ccc;
+      overflow-y: auto;
+    }
+    #parameters h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #023047;
+      text-align: center;
+    }
+    #parameters h3 {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #005f73;
+      margin-bottom: 10px;
+      text-align: left;        /* Align text to the left */
+      padding-left: 0px;
+      text-align: center;
+    }
+    .slider-box {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .slider-subbox {
+      width: 48%;
+      background: #f0f8ff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      border-radius: 12px; /* increased for more curve */
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      align-items: center; 
+    }
+    .slider-subbox label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .membrane-images {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .membrane {
+      flex: 1;
+      text-align: center;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .membrane img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      transition: border 0.2s, transform 0.2s ease-in-out;
+    }
+
+    .membrane img:hover {
+      transform: scale(1.1);
+      border-color: #0a9396; /* Optional: highlight border color on hover */
+      box-shadow: 0 4px 10px rgba(10, 147, 150, 0.4); /* subtle shadow for popping */
+      z-index: 10; /* make sure it appears above other elements */
+      position: relative;
+    }
+
+    .membrane.active img {
+      border: 3px solid #0a9396;
+    }
+    .membrane-label {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .button-section {
+      display: flex;
+      justify-content: space-around; /* equal spacing */
+      align-items: center; /* vertical center alignment */
+      margin-top: 30px;
+      
+    }
+
+    .button-section button {
+      background: transparent;
+      
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+          
+      border: 2px solid #0a9396;    /* Border similar to your membrane active border color */
+      border-radius: 20%; 
+    }
+
+    .button-section button:hover {
+      transform: scale(1.1);
+      border-color: #0077b6;        /* Change border color on hover for effect */
+      box-shadow: 0 0 8px rgba(0, 119, 182, 0.6);
+    }
+
+    .button-section button img {
+      width: 80px;
+      height: 80px;
+      background: none;
+      border: none;
+      pointer-events: none;
+    }
+
+
+    #simulation {
+      grid-area: simulation;
+      display: grid;
+      grid-template-rows: 65% 35%;
+      height: 100%;
+    }
+    #beaker-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e6f7ff;
+      border-bottom: 2px solid #ccc;
+      padding: 10px 20px 20px 20px;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%; /* or fixed height if needed */
+  /* Optional: to control max size */
+      max-width: 100%;
+      max-height: 100%;
+
+    }
+    #graph-container {
+      background-color: white;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    canvas {
+      border: 1px solid #aaa;
+      background: white;
+    }
 /* You CSS goes in here */
