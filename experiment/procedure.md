@@ -3,7 +3,6 @@ Stepwise Procedure for Performing a Reverse Osmosis Experiment in a Virtual Lab
 1. Launch the Virtual Lab
 
   • Open the virtual reverse osmosis (RO) lab simulator .
-
 2. Select Initial Parameters
 
   • Choose the type of semipermeable membrane from the “Membrane Type” dropdown menu.
