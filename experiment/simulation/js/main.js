@@ -1,4 +1,3 @@
-console.log"Hellow";
 const canvas = document.getElementById('sim-canvas');
   const ctx = canvas.getContext('2d');
   const pressureSlider = document.getElementById('pressure-slider');
