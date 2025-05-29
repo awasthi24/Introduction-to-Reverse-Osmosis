@@ -9,166 +9,106 @@
         "c": "It allowed both water and salt to pass",
         "d": "It increased the pressure on water"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>It allowed both water and salt to pass</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What happened to the contaminants (like salt or dye) during the reverse osmosis process?v",
+      "answers": {
+        "a": "They passed through the membrane",
+        "b": "They evaporated",
+        "c": "They broke down into pure water",
+        "d": "They were retained on one side of the membrane"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why was pressure applied to the contaminated water side in the experiment?",
+      "answers": {
+        "a": "To cool the water",
+        "b": "To push water through the membrane against natural osmosis",
+        "c": "To mix the contaminants",
+        "d": "To boil the water"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the simulation, increasing the applied pressure caused which of the following?",
+      "answers": {
+        "a": "More contaminants to pass through",
+        "b": "Slower water movement",
+        "c": "Faster filtration and more purified water",
+        "d": "No change in output"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What direction did water move in the reverse osmosis experiment?",
+      "answers": {
+        "a": "From contaminated water side to the clean water side",
+        "b": "From both sides equally",
+        "c": "From the clean side to the dirty side",
+        "d": "From clean side to membrane only"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "After performing the experiment, what can you conclude about the effectiveness of reverse osmosis?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "It increases the concentration of solutes",
+        "b": "It only works for solid contaminants",
+        "c": "It effectively removes contaminants using pressure and membrane",
+        "d": "It is not suitable for water purification"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 3?",
+      "question": "If the membrane were damaged or missing, what would happen?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Water would still be purified",
+        "b": "Pressure would not be needed",
+        "c": "Only heat would be required",
+        "d": "Contaminants would pass freely to the clean side"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In your experiment, how did you measure the success of the reverse osmosis process?",
+      "answers": {
+        "a": "By checking clarity or solute concentration on both sides",
+        "b": "By heating the water",
+        "c": "By comparing volume of water",
+        "d": "By mixing both sides together"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following was NOT a variable you could change in the simulation?",
+      "answers": {
+        "a": "Pressure applied",
+        "b": "Type of membrane",
+        "c": "Shape of molecules",
+        "d": "Concentration of contaminants"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 4?",
+      "question": "What real-world process is most similar to what you observed in the lab?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Water desalination using RO filters",
+        "b": "Watering plants",
+        "c": "Boiling water",
+        "d": "Adding salt to soup"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 5?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 6?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 7?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 8?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 9?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 10?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
