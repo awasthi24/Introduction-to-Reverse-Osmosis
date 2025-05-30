@@ -39,8 +39,7 @@
       padding: 20px;
       background: linear-gradient(to bottom, #d0f0f7, #ffffff);
       border-right: 2px solid #ccc;
-      /* overflow-y: auto; */   /* <-- Remove or comment out this line */
-      overflow-y: visible;      /* <-- Add this line, or omit altogether for default */
+      overflow-y: visible !important;   
     }
     #parameters h2 {
       margin-top: 0;
