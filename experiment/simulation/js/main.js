@@ -10,13 +10,14 @@ const canvas = document.getElementById('sim-canvas');
     const pressureSet = pressure > 0;
     const temperatureSet = temperature > 15; // assuming 15 is default
     const membraneSet = membraneSelected;
+    
 
     if (!pressureSet || !temperatureSet) {
       instructions.textContent = "Adjust pressure and temperature to start.";
     } else if (!membraneSet) {
       instructions.textContent = "Select membrane.";
     } else {
-      instructions.textContent = "Start simulation. Adjust pressure and temperature to see variation.";
+      instructions.textContent = "Start experiment";
     }
   }
 
