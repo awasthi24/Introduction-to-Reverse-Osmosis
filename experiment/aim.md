@@ -1,2 +1,2 @@
-### Aim of the experiment
-- Perform Reverse Osmosis Experiment
+### - Perform Reverse Osmosis Experiment
+
