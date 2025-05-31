@@ -7,46 +7,57 @@ const temperatureVal = document.getElementById('temperature-val');
 const instructions = document.getElementById('instructions');
 let membraneSelected = false;
 
-let instructionState = "reset"; // tracks current instruction state
-
-function setInstructions(state) {
-  instructionState = state;
-  if (state === "reset") {
-    instructions.textContent = "Adjust pressure and temperature to start.";
-  } else if (state === "membrane") {
-    instructions.textContent = "Start. Simulation";
-  } else if (state === "start") {
-    instructions.textContent = "Varry parameters to observe changes";
-  }
-}
-
 const membranes = {
   TFC: { thickness: 6, color: 'black', gap: 7, allowedSizes: [6] },
   CA: { thickness: 3, color: 'blue', gap: 7, allowedSizes: [6, 8] },
   PT: { thickness: 2, color: 'green', gap: 11, allowedSizes: [6, 8, 10] }
 };
 
+const colorMap = {
+  6: 'blue',
+  8: 'red',
+  10: 'green',
+  12: 'purple'
+};
+
 let selectedMembrane = 'TFC';
 let molecules = [];
 let animationId;
 let running = false;
+let pressure = 0, temperature = 15;
+let counters = { blue: 0, red: 0, green: 0, purple: 0 };
+
+function updateInstructions() {
+  const pressureSet = pressure > 0;
+  const temperatureSet = temperature > 15;
+  const membraneSet = membraneSelected;
+
+  if (!pressureSet || !temperatureSet) {
+    instructions.textContent = "Adjust pressure and temperature to start.";
+  } else if (!membraneSet) {
+    instructions.textContent = "Select membrane.";
+  } else {
+    instructions.textContent = "Start simulation. Adjust pressure and temperature to see variation.";
+  }
+}
 
 function initMolecules() {
   molecules = [];
   const sizes = [6, 8, 10, 12];
-  const colors = ['blue', 'red', 'green', 'purple'];
   for (let i = 0; i < 50; i++) {
     const sizeIndex = Math.floor(Math.random() * sizes.length);
     molecules.push({
       x: Math.random() * (canvas.width / 2 - 30),
       y: Math.random() * (canvas.height - sizes[sizeIndex]),
       size: sizes[sizeIndex],
-      color: colors[sizeIndex],
+      color: colorMap[sizes[sizeIndex]],
       vx: 0,
       vy: 0,
-      settled: false
+      settled: false,
+      hasPassed: false
     });
   }
+  counters = { blue: 0, red: 0, green: 0, purple: 0 };
 }
 
 function drawBeaker() {
@@ -92,7 +103,6 @@ function drawMembrane(type) {
     ctx.lineTo(0, canvas.height);
     ctx.stroke();
   }
-
   ctx.restore();
 }
 
@@ -106,6 +116,20 @@ function updateMolecules(membrane) {
       mol.vx = Math.min(mol.vx, speed);
     }
     mol.x += mol.vx;
+
+    // Apply gap condition for all membranes
+    if (!mol.hasPassed && mol.x + mol.size > canvas.width / 2 && mol.x < canvas.width / 2 + membrane.thickness) {
+      // "inGap" logic for all membranes
+      const inGap = (mol.y % 20) >= 14;
+      let canPass = membrane.allowedSizes.includes(mol.size) && inGap;
+      if (canPass) {
+        mol.hasPassed = true;
+        counters[mol.color]++;
+      } else {
+        mol.x = canvas.width / 2 - mol.size;
+        mol.vx *= -1;
+      }
+    }
 
     if (mol.x >= canvas.width / 2) {
       if (!mol.settled) {
@@ -129,24 +153,6 @@ function updateMolecules(membrane) {
       if (mol.y < 0 || mol.y > canvas.height - mol.size) mol.vy *= -1;
     }
 
-    if (
-      mol.x + mol.size > canvas.width / 2 &&
-      mol.x < canvas.width / 2 + membrane.thickness
-    ) {
-      if (selectedMembrane === 'CA') {
-        const inGap = (mol.y % 20) >= 14;
-        if (!membrane.allowedSizes.includes(mol.size) || !inGap) {
-          mol.x = canvas.width / 2 - mol.size;
-          mol.vx *= -1;
-        }
-      } else {
-        if (!membrane.allowedSizes.includes(mol.size)) {
-          mol.x = canvas.width / 2 - mol.size;
-          mol.vx *= -1;
-        }
-      }
-    }
-
     if (mol.x + mol.size > canvas.width) {
       mol.x = canvas.width - mol.size;
       mol.vx *= -1;
@@ -167,86 +173,77 @@ function drawMolecules() {
   }
 }
 
+// Chart.js setup for plotting per color
+const chartCtx = document.getElementById('fluxChart').getContext('2d');
+const chart = new Chart(chartCtx, {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label: 'Blue', data: [], backgroundColor: 'blue', pointRadius: 7 },
+      { label: 'Red', data: [], backgroundColor: 'red', pointRadius: 7 },
+      { label: 'Green', data: [], backgroundColor: 'green', pointRadius: 7 },
+      { label: 'Purple', data: [], backgroundColor: 'purple', pointRadius: 7 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: true } },
+    scales: {
+      x: { title: { display: true, text: 'Pressure (atm)' }, type: 'linear', min: 0, max: 7 },
+      y: { title: { display: true, text: 'Particles Passed' }, min: 0 }
+    }
+  }
+});
+
+function plotCounters(pressure) {
+  chart.data.datasets[0].data.push({ x: pressure, y: counters.blue });
+  chart.data.datasets[1].data.push({ x: pressure, y: counters.red });
+  chart.data.datasets[2].data.push({ x: pressure, y: counters.green });
+  chart.data.datasets[3].data.push({ x: pressure, y: counters.purple });
+  chart.update();
+}
+
 function animate() {
   const membrane = membranes[selectedMembrane];
   drawBeaker();
   drawMembrane(selectedMembrane);
   updateMolecules(membrane);
   drawMolecules();
-  updateGraph(pressure, temperature, membrane);
   animationId = requestAnimationFrame(animate);
-}
-
-
-const chartCtx = document.getElementById('fluxChart').getContext('2d');
-const chart = new Chart(chartCtx, {
-  type: 'line',
-  data: {
-    labels: [],
-    datasets: [{
-      label: 'Water Flux',
-      borderColor: 'blue',
-      data: [],
-      fill: false
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: { title: { display: true, text: 'Pressure (atm)' }},
-      y: { title: { display: true, text: 'Water Flux (arbitrary units)' }}
-    }
-  }
-});
-chart.data.labels = ['0'];
-chart.data.datasets[0].data = [0];
-chart.update();
-function updateGraph(pressure, temperature, membrane) {
-  if (!running || pressure <= 0) return;
-  const flux = pressure * (temperature - 10) * membrane.allowedSizes.length * 0.1;
-  chart.data.labels.push(pressure.toFixed(1));
-  chart.data.datasets[0].data.push(flux.toFixed(2));
-  if (chart.data.labels.length > 50) {
-    chart.data.labels.shift();
-    chart.data.datasets[0].data.shift();
-  }
-  chart.update('none');
 }
 
 pressureSlider.oninput = () => {
   pressure = parseFloat(pressureSlider.value);
   pressureVal.textContent = pressure;
-  // Only update instructions if in reset state (initial) or after exit
-  if (instructionState === "reset") setInstructions("reset");
+  updateInstructions();
 };
 
 temperatureSlider.oninput = () => {
   temperature = parseFloat(temperatureSlider.value);
   temperatureVal.textContent = temperature;
-  // Only update instructions if in reset state (initial) or after exit
-  if (instructionState === "reset") setInstructions("reset");
+  updateInstructions();
 };
 
 document.getElementById('start-btn').onclick = () => {
   if (!running && pressure > 0) {
     running = true;
     animate();
-    setInstructions("start");
   }
 };
 
 document.getElementById('pause-btn').onclick = () => {
   running = false;
   cancelAnimationFrame(animationId);
+  // Plot current counters at current pressure when paused
+  plotCounters(pressure);
 };
 
 document.getElementById('reset-btn').onclick = () => {
   running = false;
   cancelAnimationFrame(animationId);
   initMolecules();
-  chart.data.labels = ['0'];
-  chart.data.datasets[0].data = [0];
+  chart.data.datasets.forEach(ds => ds.data = []);
   chart.update();
 
   pressureSlider.value = 0;
@@ -259,7 +256,7 @@ document.getElementById('reset-btn').onclick = () => {
   drawBeaker();
   drawMembrane(selectedMembrane);
   drawMolecules();
-  setInstructions("reset");
+  instructions.textContent = "Adjust pressure and temperature to start.";
 };
 
 document.querySelectorAll('.membrane').forEach(btn => {
@@ -271,11 +268,14 @@ document.querySelectorAll('.membrane').forEach(btn => {
     drawBeaker();
     drawMembrane(selectedMembrane);
     drawMolecules();
-    setInstructions("membrane");
+    updateInstructions();
+    // Reset counters and chart for new membrane
+    initMolecules();
+    chart.data.datasets.forEach(ds => ds.data = []);
+    chart.update();
   };
 });
 
-let pressure = 0, temperature = 15;
 pressureSlider.value = 0;
 temperatureSlider.value = 15;
 pressureVal.textContent = '0';
@@ -285,4 +285,3 @@ initMolecules();
 drawBeaker();
 drawMembrane(selectedMembrane);
 drawMolecules();
-setInstructions("reset");
