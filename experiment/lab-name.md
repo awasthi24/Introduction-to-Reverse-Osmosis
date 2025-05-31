@@ -1,1 +1,1 @@
-### Power System Lab
+### Engineering Chemistry Lab
