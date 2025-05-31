@@ -2,47 +2,42 @@
 
    "details": [
        {
-			"Experiment": "Voltage Distribution Across String Insulators",     
-			"Lab": "Power System Lab",               
-			"Discipline": "Electronics Engineering",				 
+			"Experiment": "Introduction to Reverse Osmosis",     
+			"Lab": "Engineering Chemistry Lab",               
+			"Discipline": "Engineering Chemistry",				 
 			"Technology": "HTML CSS Javascript"         
        }
    ],
 
    "developer": [
        {       
-      "Developer": "Mr. Rajeev Baghel",         
+      "Developer": "Dr. Ravish Rajput",         
       "Institute": "REC Kannauj",         
       "InstituteAcronym": "RECK"   
        }
    ],
 
-   "contributer": [
+   "contributor": [
        {       
-			"Contributer": "Ridam Sharma",             
+			"contributor": "Abhishek Awasthi",             
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Dhananjay Singh Gaur",              
+			"contributor": "Kirtibardhan Singh",              
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Ichha Shukla",             
+			"Contributor": "Medha Saxena",             
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Satish Kumar",              
-      "Institute": "REC Kannauj",               
-			"InstituteAcronym": "RECK"         
-       },
-       {       
-			"Contributer": "Shaili Chauhan",              
+			"contributor": "Vipin Kumar",              
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        }
