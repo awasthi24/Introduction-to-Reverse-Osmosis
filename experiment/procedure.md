@@ -1,4 +1,3 @@
-### Procedure
 Stepwise Procedure for Performing a Reverse Osmosis Experiment in a Virtual Lab
 1. Launch the Virtual Lab
 
