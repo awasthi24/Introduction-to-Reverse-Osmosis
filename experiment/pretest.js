@@ -28,8 +28,8 @@
 
       // add this question and its answers to the output
       output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join("")} </div>`
+        `<div class=question> ${currentQuestion.question} </div>
+        <div class=answers> ${answers.join("")} </div>`
       );
     });
 
@@ -91,116 +91,116 @@
   const myQuestions = [
   {
   
-  "questions": [
+  questions: [
     {
-      "question": "What is the primary purpose of reverse osmosis?",
-      "answers": {
-        "a": "To remove solids from water",
-        "b": "To mix water and salt",
-        "c": "To add minerals to water",
-        "d": "To change water into steam"
+      question: "What is the primary purpose of reverse osmosis?",
+      answers: {
+        a: "To remove solids from water",
+        b: "To mix water and salt",
+        c: "To add minerals to water",
+        d: "To change water into steam"
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+       correctAnswer: "a",
+      difficulty: "beginner"
     },
     {
-      "question": "Which type of membrane is used in reverse osmosis?",
-      "answers": {
-        "a": "Transparent membrane",
-        "b": "Non-permeable membrane",
-        "c": "Semi-permeable membrane",
-        "d": "Magnetic membrane"
+      question: "Which type of membrane is used in reverse osmosis?",
+      answers: {
+        a: "Transparent membrane",
+        b: "Non-permeable membrane",
+        c: "Semi-permeable membrane",
+        d: "Magnetic membrane"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+       correctAnswer: "c",
+      difficulty: "beginner"
     },
     {
-      "question": "In reverse osmosis, what drives the water through the membrane?",
-      "answers": {
-        "a": "Gravity",
-        "b": "Heat",
-        "c": "High pressure",
-        "d": "Electricity"
+      question: "In reverse osmosis, what drives the water through the membrane?",
+      answers: {
+        a: "Gravity",
+        b: "Heat",
+        c: "High pressure",
+        d: "Electricity"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+       correctAnswer: "c",
+      difficulty: "beginner"
     },
     {
-      "question": "What does a semi-permeable membrane allow to pass through?",
-      "answers": {
-        "a": "Only salt",
-        "b": "Only large particles",
-        "c": "Only gases",
-        "d": "Only certain molecules like water"
+      question: "What does a semi-permeable membrane allow to pass through?",
+      answers: {
+        a: "Only salt",
+        b: "Only large particles",
+        c: "Only gases",
+        d: "Only certain molecules like water"
       },
-      "correctAnswer": "d",
-      "difficulty": "beginner"
+       correctAnswer: "d",
+      difficulty: "beginner"
     },
     {
-      "question": "Which of the following is most likely removed by reverse osmosis?",
-      "answers": {
-        "a": "Water molecules",
-        "b": "Salt and impurities",
-        "c": "Oxygen",
-        "d": "Light"
+      question: "Which of the following is most likely removed by reverse osmosis?",
+      answers: {
+        a: "Water molecules",
+        b: "Salt and impurities",
+        c: "Oxygen",
+        d: "Light"
       },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
+       correctAnswer: "b",
+      difficulty: "beginner"
     },
     {
-      "question": "Reverse osmosis is an example of which type of process?",
-      "answers": {
-        "a": "Natural diffusion",
-        "b": "Osmosis",
-        "c": "Filtration using pressure",
-        "d": "Chemical reaction"
+      question: "Reverse osmosis is an example of which type of process?",
+      answers: {
+        a: "Natural diffusion",
+        b: "Osmosis",
+        c: "Filtration using pressure",
+        d: "Chemical reaction"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+       correctAnswer: "c",
+      difficulty: "beginner"
     },
     {
-      "question": "What is the direction of water flow in reverse osmosis compared to natural osmosis?",
-      "answers": {
-        "a": "Same direction",
-        "b": "Opposite direction",
-        "c": "Circular direction",
-        "d": "No direction"
+      question: "What is the direction of water flow in reverse osmosis compared to natural osmosis?",
+      answers: {
+        a: "Same direction",
+        b: "Opposite direction",
+        c: "Circular direction",
+        d: "No direction"
       },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
+       correctAnswer: "b",
+      difficulty: "beginner"
     },
     {
-      "question": "What kind of water is typically used as the input in reverse osmosis?",
-      "answers": {
-        "a": "Rainwater",
-        "b": "Distilled water",
-        "c": "Contaminated or salty water",
-        "d": "Boiled water"
+      question: "What kind of water is typically used as the input in reverse osmosis?",
+      answers: {
+        a: "Rainwater",
+        b: "Distilled water",
+        c: "Contaminated or salty water",
+        d: "Boiled water"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+       correctAnswer: "c",
+      difficulty: "beginner"
     },
     {
-      "question": "Why is pressure important in reverse osmosis?",
-      "answers": {
-        "a": "It pushes water through the membrane",
-        "b": "It allows salt to dissolve faster",
-        "c": "It heats the water",
-        "d": "It increases the size of the molecules"
+      question: "Why is pressure important in reverse osmosis?",
+      answers: {
+        a: "It pushes water through the membrane",
+        b: "It allows salt to dissolve faster",
+        c: "It heats the water",
+        d: "It increases the size of the molecules"
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+       correctAnswer: "a",
+      difficulty: "beginner"
     },
     {
-      "question": "Which of these is a common real-life application of reverse osmosis?",
-      "answers": {
-        "a": "Making soda",
-        "b": "Desalinating seawater",
-        "c": "Generating electricity",
-        "d": "Freezing water"
+      question: "Which of these is a common real-life application of reverse osmosis?",
+      answers: {
+        a: "Making soda",
+        b: "Desalinating seawater",
+        c: "Generating electricity",
+        d: "Freezing water"
       },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
+       correctAnswer: "b",
+      difficulty: "beginner"
     }
   ]
 }
